@@ -1,8 +1,7 @@
 <meta name="description" content="提供了简单的git指令 应对不同工作情景">
 <meta name="keywords" content="git,git pull,git push,git merge">
 
-## git常用情景指令集
-公司里懒人太多了，应要求，写一个指令集，针对每种不同的情景设定。
+
 
 *********************************
 
