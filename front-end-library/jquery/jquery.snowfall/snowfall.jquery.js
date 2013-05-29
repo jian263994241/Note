@@ -92,7 +92,7 @@
 			};
 			
 			$(element).data("snowfall", this);			
-			
+			$(element).css({overflow:'hidden'});
 			// Snow flake object
 			function Flake(_x, _y, _size, _speed, _id, _position)
 			{
@@ -113,16 +113,16 @@
 				var flakeMarkup = null;
 				
 				if(options.image){
-					flakeMarkup = $(document.createElement("image"));
+                    flakeMarkup = $('<img/>');
 					var _ran = Math.floor(Math.random()*options.image.length);
 					flakeMarkup[0].src = options.image[_ran];
 				}else{
-					flakeMarkup = $(document.createElement("div"));
+					flakeMarkup = $('<div/>');
 					flakeMarkup.css({'background' : options.flakeColor});
 				}
 				
 				flakeMarkup.attr({'class': 'snowfall-flakes', 'id' : 'flake-' + this.id}).css({'width' : this.size, 'height' : this.size, 'position' : 'absolute', 'top' : this.y, 'left' : this.x, 'fontSize' : 0, 'zIndex' : options.flakeIndex});
-				
+
 				if($(element).get(0).tagName === $(document).get(0).tagName){
 					$('body').append(flakeMarkup);
 					element = $('body');
