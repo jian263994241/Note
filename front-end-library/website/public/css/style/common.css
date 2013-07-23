@@ -1,0 +1,10 @@
+#demos{
+    border: 1px solid indianred;
+    width: 600px;
+    float: left;
+}
+#btns{
+    border: 1px red dashed;
+    width: 100px;
+    margin-left: 610px;
+}

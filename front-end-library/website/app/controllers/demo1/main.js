@@ -1,0 +1,1 @@
+require(['c/demo1/a']);
