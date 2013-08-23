@@ -12,7 +12,8 @@ define(function(){
             //url-q
             'helper':'helper',
             'v':'view',
-            'c':'controllers'
+            'c':'controller',
+            'm':'model'
         },
         shim:{
             'backbone':{
