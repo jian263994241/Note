@@ -1,6 +1,7 @@
 #MongoDB shell 
-##数据库常用命令 
->Help查看命令提示
+##数据库常用命令
+
+Help查看命令提示
 
     db.help();
 
@@ -267,14 +268,17 @@
 	
 	参数  详解          默认值 
 	
-	query 查询过滤条件  {} 
-	sort 如果多个文档符合查询过滤条件，将以该参数指定的排列方式选择出排在首位的对象，该对象将被操作  {} 
-	remove 若为true，被选中对象将在返回前被删除  N/A 
-	update 一个 修改器对象  N/A 
-	new	若为true，将返回修改后的对象而不是原始对象。在删除操作中，该参数被忽略。false 
-	fields 参见Retrieving a Subset of Fields (1.5.0+)  All fields
-	upsert 创建新对象若查询结果为空。 示例 (1.5.4+) false 
 	
+	
+
+
+|| query || 查询过滤条件 || {} || 
+||sort ||如果多个文档符合查询过滤条件，将以该参数指定的排列方式选择出排在首位的对象，该对象将被操作 || {} ||
+||remove || 若为true，被选中对象将在返回前被删除  || N/A 
+||update || 一个 修改器对象 || N/A ||
+|| new	|| 若为true，将返回修改后的对象而不是原始对象。在删除操作中，该参数被忽略。|| false  ||
+||fields ||参见Retrieving a Subset of Fields (1.5.0+) || All fields||
+||upsert ||创建新对象若查询结果为空。 示例 (1.5.4+) ||false ||
 
 ###语句块操作
 
