@@ -332,4 +332,6 @@
     db.things.find({x:4}).forEach(function(x) {print(tojson(x));});
 
 
-#######2013/8/23 14:38:09 
+```javascript
+2013/8/23 14:38:09
+```
