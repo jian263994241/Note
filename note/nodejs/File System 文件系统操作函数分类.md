@@ -60,4 +60,4 @@
 		fs.symlink(destination, path, [type], [callback])   
 		读取链接指向的路径   
 		fs.readlink(path, [callback(err,linkstr)])   
-fs.unlink(path,[callback]);
+		fs.unlink(path,[callback]);
