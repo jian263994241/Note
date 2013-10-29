@@ -1,30 +1,30 @@
-# Gitlab°²×°½Ì³Ì
+ # Gitlabå®‰è£…æ•™ç¨‹
 
-±¾ÎÄ²Î¿¼ÁË<https://github.com/nielsbasjes/gitlab-recipes/blob/master/install/CentOS_6.md>
+æœ¬æ–‡å‚è€ƒäº†<https://github.com/nielsbasjes/gitlab-recipes/blob/master/install/CentOS_6.md>
 
 ### installation guide for centos 5.9 
 
-ÕâÀïµÄ°²×°½Ì³ÌÊÇÎÒÔÚÎÒÃÇµÄServer http://lbsvn01.hk.leoburnett.com ²¼ÖÃgitlabÊ±²ÉÓÃµÄ°²×°¼ÇÂ¼
+è¿™é‡Œçš„å®‰è£…æ•™ç¨‹æ˜¯æˆ‘åœ¨æˆ‘ä»¬çš„Server http://lbsvn01.hk.leoburnett.com å¸ƒç½®gitlabæ—¶é‡‡ç”¨çš„å®‰è£…è®°å½•
 
-### 1. ´ò¿ª¹«Ô¿ÈÏÖ¤
-Git²ÉÓÃÁËSSHµÄ¹«Ô¿ÈÏÖ¤£¬ÔÚgitlabÉÏÅäÖÃgitoliteµÄ¹«Ô¿ÈÏÖ¤£¬¿ÉÒÔ±ÜÃâÔÚ·ÃÎÊÊ±²»¶ÏµÄ¼üÈëÃÜÂë¡£
-ÎÒÃÇµÄServerÒÑ¾­ÅäÖÃÁËOpenSSH-Server£¬µ«ÊÇ°Ñ¹«Ô¿ÈÏÖ¤¸ø½ûÖ¹ÁË£¬ËùÒÔÊ×ÏÈµÄÈÎÎñÊÇ´ò¿ª¹«Ô¿ÈÏÖ¤¡£
+### 1. æ‰“å¼€å…¬é’¥è®¤è¯
+Gité‡‡ç”¨äº†SSHçš„å…¬é’¥è®¤è¯ï¼Œåœ¨gitlabä¸Šé…ç½®gitoliteçš„å…¬é’¥è®¤è¯ï¼Œå¯ä»¥é¿å…åœ¨è®¿é—®æ—¶ä¸æ–­çš„é”®å…¥å¯†ç ã€‚
+æˆ‘ä»¬çš„Serverå·²ç»é…ç½®äº†OpenSSH-Serverï¼Œä½†æ˜¯æŠŠå…¬é’¥è®¤è¯ç»™ç¦æ­¢äº†ï¼Œæ‰€ä»¥é¦–å…ˆçš„ä»»åŠ¡æ˜¯æ‰“å¼€å…¬é’¥è®¤è¯ã€‚
 
-    //´ò¿ªsshdµÄÅäÖÃÎÄ¼ş
-    vim /etc/sshd_config
+    //æ‰“å¼€sshdçš„é…ç½®æ–‡ä»¶
+    vim /etc/ssh/sshd_config
 
-¿ªÆôÈçÏÂµÄÅäÖÃ£º
+å¼€å¯å¦‚ä¸‹çš„é…ç½®ï¼š
 
-    RSAAuthentication yes # ÆôÓÃ RSA ÈÏÖ¤ 
-    PubkeyAuthentication yes # ÆôÓÃ¹«Ô¿ÈÏÖ¤ 
+    RSAAuthentication yes # å¯ç”¨ RSA è®¤è¯ 
+    PubkeyAuthentication yes # å¯ç”¨å…¬é’¥è®¤è¯ 
 
-¾ßÌåµÄ¹«Ô¿ÈÏÖ¤µÄÄÚÈİ£¬Çë²Î¿¼ÕâÆªÎÄÕÂ£º<http://tech.idv2.com/2006/10/21/ssh-rsa-auth/>
+å…·ä½“çš„å…¬é’¥è®¤è¯çš„å†…å®¹ï¼Œè¯·å‚è€ƒè¿™ç¯‡æ–‡ç« ï¼š<http://tech.idv2.com/2006/10/21/ssh-rsa-auth/>
 
-### 2. ÅäÖÃÏµÍ³£¬°²×°Àà¿â
+### 2. é…ç½®ç³»ç»Ÿï¼Œå®‰è£…ç±»åº“
 
-°²×°Development¹¤¾ß
+å®‰è£…Developmentå·¥å…·
 
-    // µÇÂ¼Root
+    // ç™»å½•Root
     sudo su
     yum -y groupinstall 'Development Tools'
 
@@ -38,13 +38,13 @@ Git²ÉÓÃÁËSSHµÄ¹«Ô¿ÈÏÖ¤£¬ÔÚgitlabÉÏÅäÖÃgitoliteµÄ¹«Ô¿ÈÏÖ¤£¬¿ÉÒÔ±ÜÃâÔÚ·ÃÎÊÊ±²»¶ÏµÄ
                    mysql-devel crontabs logwatch logrotate sendmail-cf qtwebkit qtwebkit-devel \
                    perl-Time-HiRes
 
-¸üĞÂCentOSÏµÍ³
+æ›´æ–°CentOSç³»ç»Ÿ
 
     yum -y update
 
-### 3. °²×°Ruby
+### 3. å®‰è£…Ruby
 
-ÒÔRoot×´Ì¬µÇÂ¼£¬ÏÂÔØrubyÖ®ºó±àÒë°²×°
+ä»¥RootçŠ¶æ€ç™»å½•ï¼Œä¸‹è½½rubyä¹‹åç¼–è¯‘å®‰è£…
 
     mkdir /tmp/ruby && cd /tmp/ruby
     wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz
@@ -54,14 +54,14 @@ Git²ÉÓÃÁËSSHµÄ¹«Ô¿ÈÏÖ¤£¬ÔÚgitlabÉÏÅäÖÃgitoliteµÄ¹«Ô¿ÈÏÖ¤£¬¿ÉÒÔ±ÜÃâÔÚ·ÃÎÊÊ±²»¶ÏµÄ
     make
     make install
 
-°²×°Bundler Gem:
+å®‰è£…Bundler Gem:
 
     gem install bundler
 
-### 4. °²×°2.7°æ±¾µÄpython
+### 4. å®‰è£…2.7ç‰ˆæœ¬çš„python
 
-CentOSÏµÍ³ÀïµÄPythonÊÇ2.4°æ±¾µÄ£¬°æ±¾Ì«µÍ£¬»áµ¼ÖÂ×îºógitlabÎŞ·¨ÏÔÊ¾µÄBug£¬ËùÒÔĞèÒªÉı¼¶µ½2.7
-ÕâÀïµÄÉı¼¶±ØĞëÊÇÊÖ¶¯Íê³É£¬ÒòÎªÔÚyumÁĞ±íÀïÖ»ÔÊĞí2.4°æ±¾
+CentOSç³»ç»Ÿé‡Œçš„Pythonæ˜¯2.4ç‰ˆæœ¬çš„ï¼Œç‰ˆæœ¬å¤ªä½ï¼Œä¼šå¯¼è‡´æœ€ågitlabæ— æ³•æ˜¾ç¤ºçš„Bugï¼Œæ‰€ä»¥éœ€è¦å‡çº§åˆ°2.7
+è¿™é‡Œçš„å‡çº§å¿…é¡»æ˜¯æ‰‹åŠ¨å®Œæˆï¼Œå› ä¸ºåœ¨yumåˆ—è¡¨é‡Œåªå…è®¸2.4ç‰ˆæœ¬
 
     mkdir /tmp/python && cd /tmp/python
     wget http://www.python.org/ftp/python/2.7.2/Python-2.7.2.tgz
@@ -71,20 +71,20 @@ CentOSÏµÍ³ÀïµÄPythonÊÇ2.4°æ±¾µÄ£¬°æ±¾Ì«µÍ£¬»áµ¼ÖÂ×îºógitlabÎŞ·¨ÏÔÊ¾µÄBug£¬ËùÒÔĞè
     make
     make install
 
-°²×°Íê³ÉÖ®ºó²é¿´Â·¾¶£º
+å®‰è£…å®Œæˆä¹‹åæŸ¥çœ‹è·¯å¾„ï¼š
 
     /usr/local/bin/python2.7 -V 
 
-½¨Á¢link
+å»ºç«‹link
 
-    mv /usr/bin/python /usr/bin/python.bak £¨»òÕßrm -rf /usr/bin/python£© 
+    mv /usr/bin/python /usr/bin/python.bak ï¼ˆæˆ–è€…rm -rf /usr/bin/pythonï¼‰ 
     ln -s /usr/local/bin/python2.7 /usr/bin/python 
 
-¹ØÓÚPythonÔÚCentOSµÄ°²×°Çë²Î¿¼<http://myhat.blog.51cto.com/391263/788552>
+å…³äºPythonåœ¨CentOSçš„å®‰è£…è¯·å‚è€ƒ<http://myhat.blog.51cto.com/391263/788552>
 
-### 5. Ìí¼ÓÏµÍ³ÓÃ»§
+### 5. æ·»åŠ ç³»ç»Ÿç”¨æˆ·
 
-ÒÔRoot×´Ì¬µÇÂ¼
+ä»¥RootçŠ¶æ€ç™»å½•
 
     adduser \
       --system \
@@ -103,22 +103,22 @@ CentOSÏµÍ³ÀïµÄPythonÊÇ2.4°æ±¾µÄ£¬°æ±¾Ì«µÍ£¬»áµ¼ÖÂ×îºógitlabÎŞ·¨ÏÔÊ¾µÄBug£¬ËùÒÔĞè
 
     usermod -a -G git gitlab 
 
-ÎªGitlabÌí¼ÓÃÜÂë
+ä¸ºGitlabæ·»åŠ å¯†ç 
 
-    passwd gitlab # ÕâÀïÎÒµÄÃÜÂëÑ¡ÔñÁËleo@123
+    passwd gitlab # è¿™é‡Œæˆ‘çš„å¯†ç é€‰æ‹©äº†leo@123
 
-Éú³ÉSSH KEY
+ç”ŸæˆSSH KEY
 
     sudo -u gitlab -H ssh-keygen -q -N '' -t rsa -f /home/gitlab/.ssh/id_rsa
 
-### 6. °²×°Gitolite
+### 6. å®‰è£…Gitolite
 
-Clone GitoliteµÄ´úÂë
+Clone Gitoliteçš„ä»£ç 
 
     cd /home/git
     sudo -u git -H git clone -b gl-v320 https://github.com/gitlabhq/gitolite.git /home/git/gitolite
 
-½«GitlabÉèÖÃÎªGitoliteµÄAdmin
+å°†Gitlabè®¾ç½®ä¸ºGitoliteçš„Admin
 
     # Add Gitolite scripts to $PATH
     sudo -u git -H mkdir /home/git/bin
@@ -132,13 +132,13 @@ Clone GitoliteµÄ´úÂë
     # ... and use it as the admin key for the Gitolite setup
     sudo -u git -H sh -c "PATH=/home/git/bin:$PATH; gitolite setup -pk /home/git/gitlab.pub"
 
-ĞŞ¸Ägitolite DirecotryµÄÈ¨ÏŞ
+ä¿®æ”¹gitolite Direcotryçš„æƒé™
 
     # Make sure the Gitolite config dir is owned by git
     chmod 750 /home/git/.gitolite/
     chown -R git:git /home/git/.gitolite/
 
-ĞŞ¸ÄrepositoriesµÄÈ¨ÏŞ
+ä¿®æ”¹repositoriesçš„æƒé™
 
     # Make sure the repositories dir is owned by git and it stays that way
     chmod -R ug+rwXs,o-rwx /home/git/repositories/
@@ -147,12 +147,12 @@ Clone GitoliteµÄ´úÂë
     # Make sure the gitlab user can access the required directories
     chmod g+x /home/git
 
-ÅäÖÃÊ¹gitlab¿ÉÒÔ²Ù×÷git
+é…ç½®ä½¿gitlabå¯ä»¥æ“ä½œgit
 
     su - gitlab
     ssh git@localhost  # type 'yes' and press <Enter>.
 
-×ö¸öTest¿´¿´ÊÇ·ñ¿ÉÒÔClone
+åšä¸ªTestçœ‹çœ‹æ˜¯å¦å¯ä»¥Clone
 
     # Clone the admin repo so SSH adds localhost to known_hosts ...
     # ... and to be sure your users have access to Gitolite
@@ -161,12 +161,12 @@ Clone GitoliteµÄ´úÂë
     # If it succeeded without errors you can remove the cloned repo
     rm -rf /tmp/gitolite-admin
 
-### 7. °²×°Gitlab
+### 7. å®‰è£…Gitlab
 
     # We'll install GitLab into home directory of the user "gitlab"
     cd /home/gitlab
 
-Clone GitlabµÄsource
+Clone Gitlabçš„source
 
     # Clone GitLab repository
     git clone https://github.com/gitlabhq/gitlabhq.git gitlab
@@ -177,17 +177,17 @@ Clone GitlabµÄsource
     # Checkout to stable release
     git checkout 4-0-stable
 
-¶Ôgitlab×öÒ»ÏµÁĞµÄConfig
+å¯¹gitlabåšä¸€ç³»åˆ—çš„Config
 
     cp /home/gitlab/gitlab/config/gitlab.yml{.example,}
     vim /home/gitlab/gitlab/config/gitlab.yml
 
-°ÑËùÓĞµÄlocalhostÈ«²¿»»³Élbsvn01.hk.leoburnett.com
+æŠŠæ‰€æœ‰çš„localhostå…¨éƒ¨æ¢æˆlbsvn01.hk.leoburnett.com
 
     cp /home/gitlab/gitlab/config/unicorn.rb{.example,}
     vim /home/gitlab/gitlab/config/unicorn.rb
 
-¼ÓÈëÏÂÃæµÄÅäÖÃ
+åŠ å…¥ä¸‹é¢çš„é…ç½®
 
     listen "127.0.0.1:3000"  # listen to port 3000 on the loopback interface
 
@@ -196,14 +196,14 @@ Gitlab DB Setting
     cp /home/gitlab/gitlab/config/database.yml{.mysql,}
     vim /home/gitlab/gitlab/config/database.yml
 
-ĞèÒª¸ù¾İMysqlÀ´ÅäÖÃ
+éœ€è¦æ ¹æ®Mysqlæ¥é…ç½®
 
     username: kelvin_ngai
     password: 'Welcome1'
 
-°²×°Gem
+å®‰è£…Gem
 
-    //ÍË³öGitlab
+    //é€€å‡ºGitlab
     logout
     cd /home/gitlab/gitlab
     gem install charlock_holmes --version '0.6.9'
@@ -212,27 +212,27 @@ Gitlab DB Setting
     cd /home/gitlab/gitlab
     bundle install --deployment --without development test postgres
 
-ÅäÖÃGit
+é…ç½®Git
 
     git config --global user.name "GitLab"
     git config --global user.email "gitlab@localhost"
 
-ÉèÖÃGitlab Hooks
+è®¾ç½®Gitlab Hooks
 
-    //ÍË³öGitlab
+    //é€€å‡ºGitlab
     logout
 
     cd /home/gitlab/gitlab
     cp ./lib/hooks/post-receive /home/git/.gitolite/hooks/common/post-receive
     chown git:git /home/git/.gitolite/hooks/common/post-receive
 
-³õÊ¼»¯Database
+åˆå§‹åŒ–Database
 
     su - gitlab
     cd /home/gitlab/gitlab
     bundle exec rake gitlab:app:setup RAILS_ENV=production
 
-½«Gitlab¼ÓÈëµ½¿ª»úÆô¶¯
+å°†GitlabåŠ å…¥åˆ°å¼€æœºå¯åŠ¨
 
     logout
 
@@ -246,7 +246,7 @@ Gitlab DB Setting
     # or
     /etc/init.d/gitlab start
 
-¼ì²é
+æ£€æŸ¥
 
     su - gitlab
 
@@ -256,9 +256,9 @@ Gitlab DB Setting
     cd /home/gitlab/gitlab
     bundle exec rake gitlab:check RAILS_ENV=production
 
-### 8. ÅäÖÃApache    
+### 8. é…ç½®Apache    
 
-Ìí¼ÓGitlab¶Ë¿ÚºÍĞéÄâÖ÷»ú
+æ·»åŠ Gitlabç«¯å£å’Œè™šæ‹Ÿä¸»æœº
 
     vim /etc/httpd/conf.d/gitlab.conf
 
@@ -274,15 +274,15 @@ Gitlab DB Setting
         ProxyPassReverse / http://localhost:3000/
     </VirtualHost>
 
-### 9. ÅäÖÃFirewall
+### 9. é…ç½®Firewall
 
     vim /etc/sysconfig/iptables
 
-²Î¿¼80¶Ë¿Ú×¼Èë£¬Ìí¼Ó8080¶Ë¿Ú×¼Èë¡£È»ºóÖØÆôServer¡£
+å‚è€ƒ80ç«¯å£å‡†å…¥ï¼Œæ·»åŠ 8080ç«¯å£å‡†å…¥ã€‚ç„¶åé‡å¯Serverã€‚
 
-### DONE£¡
+### DONEï¼
 
-µÇÂ¼Ò»ÏÂhttp://lbsvn01.hk.leoburnett.com:8080
+ç™»å½•ä¸€ä¸‹http://lbsvn01.hk.leoburnett.com:8080
 
     admin@local.host
     5iveL!fe
@@ -291,12 +291,12 @@ Gitlab DB Setting
 #### Error: 
     rake aborted!
     Don't know how to build task 'sidekiq:start'
-¹Ù·½ÎÄµµÀïÃæ¸ø³öÀ´µÄgitlab initÎÄ¼şÊÇÓĞÎÊÌâµÄ£¬ĞèÒªĞŞÕı£¬²Î¿¼ÏÂÃæµÄÁ´½Ó
+å®˜æ–¹æ–‡æ¡£é‡Œé¢ç»™å‡ºæ¥çš„gitlab initæ–‡ä»¶æ˜¯æœ‰é—®é¢˜çš„ï¼Œéœ€è¦ä¿®æ­£ï¼Œå‚è€ƒä¸‹é¢çš„é“¾æ¥
 https://github.com/gitlabhq/gitlabhq/issues/2535
 
 #### Error:
     redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED
-Èç¹ûÉèÖÃµÄ³ö¿ÚÁ´½Ó²»ÊÇ±ê×¼µÄ80¶Ë¿Ú²¢ÇÒÓÃµÄÊÇredis-serverµÄ»°ÒªÈ·±£serverÒÑ¾­ÆğÀ´£¬²Î¿¼ÏÂÃæµÄÁ´½Ó
+å¦‚æœè®¾ç½®çš„å‡ºå£é“¾æ¥ä¸æ˜¯æ ‡å‡†çš„80ç«¯å£å¹¶ä¸”ç”¨çš„æ˜¯redis-serverçš„è¯è¦ç¡®ä¿serverå·²ç»èµ·æ¥ï¼Œå‚è€ƒä¸‹é¢çš„é“¾æ¥
 http://stackoverflow.com/questions/8754304/redis-connection-to-127-0-0-16379-failed-connect-econnrefused
 
 #### Error:
@@ -312,7 +312,7 @@ http://stackoverflow.com/questions/8754304/redis-connection-to-127-0-0-16379-fai
     app/views/tree/_blob.html.haml:9:in `_app_views_tree__blob_html_haml__119734296_85276730'
     app/views/tree/_tree.html.haml:15:in `_app_views_tree__tree_html_haml__378628332_84882990'
     app/views/tree/show.js.haml:3:in `_app_views_tree_show_js_haml___475206472_100979370'
-Õâ¸öÎÊÌâÖ»³öÏÖÔÚCentOS 5ÀïÃæ£¬²Î¿¼ÏÂÃæµÄÁ´½Ó½øĞĞµÄĞŞ¸Ä
+è¿™ä¸ªé—®é¢˜åªå‡ºç°åœ¨CentOS 5é‡Œé¢ï¼Œå‚è€ƒä¸‹é¢çš„é“¾æ¥è¿›è¡Œçš„ä¿®æ”¹
     https://github.com/gitlabhq/gitlabhq/issues/1774
-°ÑPython2.4Éı¼¶µ½2.7²Î¿¼ÏÂÃæµÄÎÄÕÂ£º
+æŠŠPython2.4å‡çº§åˆ°2.7å‚è€ƒä¸‹é¢çš„æ–‡ç« ï¼š
     http://myhat.blog.51cto.com/391263/788552
