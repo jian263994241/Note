@@ -1,7 +1,10 @@
 <meta name="description" content="提供了简单的git指令 应对不同工作情景">
 <meta name="keywords" content="git,git pull,git push,git merge">
 
+###git的传输字节限制
 
+
+     git config http.postBuffer  524288000
 
 *********************************
 
